@@ -1,0 +1,9 @@
+Este paquete contiene una instalación basica de Codeigniter y los archivos basicos para empezar a trabajar con
+Foundation, para maquetado, jQuery, para JavaScript y icon-fonts de ZURB para los iconos.
+
+Versiones
+
+Codeigniter - 2.1.3 
+Foundation - 3.2
+jQuery - 1.9.0
+Font-Icons - 2
