@@ -1,20 +1,20 @@
 <pre><?php //print_r($tareas); ?></pre>
 <div class="row">
-    <table class="twelve">
+    <table class="footable table">
         <thead>
           <tr>
-            <th>Fecha</th>
-            <th>Cliente</th>
-            <th>Calle</th>
-            <th>Abogado</th>
-            <th>Institucion</th>
-            <th>Operacion</th>
-            <th>RPP</th>
-            <th>Números</th>
-            <th>Asignado</th>
-            <th>Domicilio</th>
-            <th>Horario</th>
-            <th>Observaciones</th>
+            <th data-hide="">Fecha</th>
+            <th data-hide="phone">Cliente</th>
+            <th data-hide="phone">Calle</th>
+            <th data-hide="phone">Abogado</th>
+            <th data-hide="phone">Institucion</th>
+            <th data-hide="phone">Operacion</th>
+            <th data-hide="phone">RPP</th>
+            <th data-hide="phone">Números</th>
+            <th data-hide="phone">Asignado</th>
+            <th data-hide="phone">Domicilio</th>
+            <th data-hide="phone">Horario</th>
+            <th data-hide="phone">Observaciones</th>
           </tr>
         </thead>
         <tbody>

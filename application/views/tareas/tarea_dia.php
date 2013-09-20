@@ -1,24 +1,24 @@
 <div class="row">
-    <div class="ten columns push-two">
+    <div class="large-7 large-centered columns ">
         <h2><small>Actividades del dia <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
-    <div class="twelve columns">
-    <table class="responsive">
+    <div class="large-12 large-centered columns">
+    <table class="footable table">
         <thead>
           <tr>
-            <th>Hora</th>
-            <th>Cliente</th>
-            <th>calle</th>
-            <th>Abogado</th>
-            <th>Institucion</th>
-            <th>Operacion</th>
-            <th>RPP</th>
-            <th>Numeros</th>
-            <th>Asignado</th>
-            <th>Domicilio</th>
-            <th>Horario</th>
-            <th>Observaciones</th>
-            <th>acciones</th>
+            <th data-hide="">Hora</th>
+            <th data-hide="">Cliente</th>
+            <th data-hide="phone">calle</th>
+            <th data-hide="phone">Abogado</th>
+            <th data-hide="phone">Institucion</th>
+            <th data-hide="phone">Operacion</th>
+            <th data-hide="phone">RPP</th>
+            <th data-hide="phone">Numeros</th>
+            <th data-hide="phone">Asignado</th>
+            <th data-hide="phone">Domicilio</th>
+            <th data-hide="phone">Horario</th>
+            <th data-hide="phone">Observaciones</th>
+            <th data-hide="phone">acciones</th>
           </tr>
         </thead>
         <tbody>

@@ -1,19 +1,12 @@
-<form class="twelve" action="<?=base_url(); ?>/index.php/usuario/autenticar_c" method="POST">
+<form class="large-6 large-centered columns" action="<?=base_url(); ?>/index.php/usuario/autenticar_c" method="POST">
  
-     <fieldset class="six columns centered">
-
+     <fieldset>
         <legend>Inicia Sesion</legend>
   
             <label>Usuario</label>
             <input type="text" name="nombre_usuario" placeholder="Ingresa tu usuario" autofocus />
-
             <label>Contraseña</label>
-            <div class="two columns push-ten">
             <input type="password" name="contrasena"/>
-
             <input type="submit" class="button" value="Acceder" />
-            </div>
- 
-     </fieldset>
-
+      </fieldset>
 </form>

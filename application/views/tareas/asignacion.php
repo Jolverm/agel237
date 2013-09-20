@@ -2,10 +2,10 @@
     <div class="ten columns push-two">
         <h2><small>ASIGNACION DEL <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
-    <div class="twelve columns">
+    <div class="large-6 large-centered columns">
     
         <form method="post" action="<?=base_url(); ?>index.php/tareas/resumen">
-        <table class="responsive">
+        <table class="footable table">
         <thead>
           <tr>
             <th>ASIGNADO</th>

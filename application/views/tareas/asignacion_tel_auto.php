@@ -15,7 +15,7 @@
 
 ?>
 <div class="row">
-    <div class="twelve columns">
+    <div class="large-6 large-centered columns">
         <select name="date_resume" id="date_resume" onchange="resumen_date()">
             <option value="0">Elije una fecha para ver el resumen de ella</option>
             <?php foreach ($fechas as $fecha) {
@@ -25,21 +25,21 @@
     </div>
 </div>
 <div class="row">
-    <div class="ten columns push-two">
+    <div class="large-10 large-offset-2 columns">
         <h2><small>Resumen Asignados del <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
-    <div class="twelve columns">
-    <table class="responsive">
+    <div class="large-6 large-centered columns">
+    <table class="footable table">
         <thead>
           <tr>
-            <th>ASIGNADO</th>
+            <th data-hide="">ASIGNADO</th>
             <?php for($i = 1; $i <= $count; $i++){ ?>
 
-                <th>ACTIVIDAD <?php echo($i); ?></th>
+                <th data-hide="">ACTIVIDAD <?php echo($i); ?></th>
 
             <?php } ?>
-            <th>AUTOMOVIL</th>
-            <th>TELEFONO</th>
+            <th data-hide="">AUTOMOVIL</th>
+            <th data-hide="">TELEFONO</th>
           </tr>
         </thead>
         <tbody>

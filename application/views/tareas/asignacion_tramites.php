@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="ten columns push-two">
+    <div class="large-10 large-offset-2 columns">
         <h2><small>Asignación de Tramites del Dia <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
-    <div class="twelve columns">
-        <table class="responsive">
+    <div class="large-6 large-centered columns">
+        <table class="footable table">
         <thead>
           <tr>
             <th>INSTITUCION</th>

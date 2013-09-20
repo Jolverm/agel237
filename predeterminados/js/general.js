@@ -25,11 +25,11 @@ function borrar_tarea (id) {
 function mostrar_formulario(){
   var tp = $('#id_tipo_tarea').val();
   if (tp == 0){
-	 $('.firma').hide();
-	 $('.tramite').show();
+   $('.firma').hide();
+   $('.tramite').show();
   } else if (tp == 1) {
-	 $('.tramite').hide();
-	 $('.firma').show();
+   $('.tramite').hide();
+   $('.firma').show();
   }
 }
 
