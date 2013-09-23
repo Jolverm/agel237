@@ -63,12 +63,12 @@
 
 <!-- INICIA EL FORMULARIO AGREGAR TAREA--> 
 <section class="row">
-    <select class="large-2 large-offset-3 large-centered tipoTramite" id="id_tipo_tarea" name="id_tipo_tarea">
+    <select class="large-2 small-6 small-offset-3 large-offset-3  large-centered tipoTramite" id="id_tipo_tarea" name="id_tipo_tarea">
         <option value="1">Firma</option>
         <option value="0">Tramite</option>
     </select>
        
-     <fieldset class="large-6 large-centered columns">
+     <fieldset class="large-6 small-6 small-centered large-centered columns">
         <legend>Fecha y Hora</legend>
             <div>
                  <label>Fecha</label>

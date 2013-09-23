@@ -73,10 +73,6 @@ class Tareas_m extends CI_Model {
         
     }
     
-
-     
-    
-    
     /* 
     * Método consulta las tareas por usuario a la base de datos
     * @author Emmanuelle Laguna

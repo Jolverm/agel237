@@ -25,6 +25,16 @@
 
         public function mostrar_vistas_c($vista, $tarea_id = 0, $mensaje = '', $id_usuario = 0){
 
+            $sesion = $this->session->userdata('id_usuario');
+
+            if(empty($sesion)){
+
+                redirect($base_url);
+
+                die();
+
+            }
+
             if($mensaje != ''){
 
                 //echo $mensaje;
@@ -36,14 +46,6 @@
             } else {
 
                 $encabezado = '';
-
-            }
-
-            $sesion = $this->session->userdata('id_usuario');
-
-            if(empty($sesion)){
-
-                redirect($base_url);
 
             }
      

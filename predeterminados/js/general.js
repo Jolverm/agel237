@@ -51,7 +51,7 @@ function resumen_date(){
 
 function cambiar_asignado(id_tarea){
 
-  var asg = $('#asignar_tarea').val();
+  var asg = $('#asignar_tarea_'+ id_tarea).val();
 
    url = b + 'tareas/asigna_tareas/';
 

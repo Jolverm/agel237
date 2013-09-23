@@ -2,7 +2,9 @@
     <div class="large-10 large-offset-2 columns">
         <h2><small>Asignación de Tramites del Dia <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
-    <div class="large-6 large-centered columns">
+    </div>
+<div class="row">
+    <div class="large-12 large-centered columns">
         <table class="footable table">
         <thead>
           <tr>
@@ -15,15 +17,16 @@
         </thead>
         <tbody>
             <?php //print_r($usuarios); ?>
+            <pre><?php //print_r($tareas); ?></pre>
             <?php if(!isset($tareas['mensaje']) || $tareas['mensaje'] != 0){
-                ?><tr><?php
                 foreach ($tareas as $tarea) {
+                    ?><tr><?php
                     ?><td><?=(isset($tarea['institucion'])) ? $tarea['institucion'] : '' ; ?></td><?php
                     ?><td><?=(isset($tarea['actividad'])) ? $tarea['actividad'] : '' ; ?></td><?php
                     ?><td><?=(isset($tarea['domicilio'])) ? $tarea['domicilio'] : '' ; ?></td><?php
                     ?><td>
                         <?php if(isset($tarea['tbl_usuarios_ag_id_usuario']) && isset($usuarios) ){
-                            ?><select id="asignar_tarea" onchange="cambiar_asignado(<?php echo $tarea['id_tarea']; ?>)">
+                            ?><select id="asignar_tarea_<?php echo $tarea['id_tarea']; ?>" onchange="cambiar_asignado(<?php echo $tarea['id_tarea']; ?>)">
                             <?php
                                 foreach ($usuarios as $usuario) {
                                     ?>
@@ -41,7 +44,8 @@
                         }?>
                     </td><?php
                 }
-            ?></tr><?php } ?>
+                ?></tr>
+            <?php } ?>
         <?php /*foreach ($actividades as $actividad): ?>
           
       

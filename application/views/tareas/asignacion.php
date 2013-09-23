@@ -2,6 +2,8 @@
     <div class="ten columns push-two">
         <h2><small>ASIGNACION DEL <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
+</div>
+<div class="row">
     <div class="large-6 large-centered columns">
     
         <form method="post" action="<?=base_url(); ?>index.php/tareas/resumen">
@@ -80,9 +82,8 @@
           
         <?php endforeach; ?>
         </tbody> 
-    </table>
-            <input type="submit" class="button" value="ACEPTAR" /> 
-  
-        </form>     
+        </table>
+        <input type="submit" class="button" value="ACEPTAR" /> 
+    </form>     
     </div>
 </div>
