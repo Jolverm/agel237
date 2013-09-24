@@ -343,6 +343,8 @@
 
             } else {
 
+                $datos['atributos'] = $this->tareas_m->catalogo_atributos_por_usuario();
+                
                 $datos['contenido'] = $this->load->view('tareas/resumen', $datos, TRUE);
 
             }            

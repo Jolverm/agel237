@@ -359,6 +359,33 @@ class Tareas_m extends CI_Model {
         
         return $datos;   
      }
+
+     public function catalogo_atributos_por_usuario(){
+
+        $this->db->select();
+
+        $this->db->from('atributos_ag');
+
+        $this->db->group_by('nombre_atributo');
+
+        $query = $this->db->get();
+
+        if($query->num_rows() < 1){
+        
+            $datos['mensaje'] = 0;
+        
+        } else {
+        
+            foreach($query->result_array() as $row){
+            
+                $datos[$row['tipo_atributo']][$row['tbl_usuarios_ag_id_usuario']] = $row;
+                
+            }
+        
+        }
+        
+        return $datos;   
+     }
      
      public function insertar_atributo($datos){
          

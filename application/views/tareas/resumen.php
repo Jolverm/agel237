@@ -52,11 +52,11 @@
             <?php if($tarea != 0): ?>
             <?php foreach ($tarea as $actividad){ ?>
             <?php if(isset($actividad['tbl_usuarios_ag_id_usuario']) && ($asignado != $actividad['tbl_usuarios_ag_id_usuario'])){ ?>
-                <td><?php echo $actividad['tbl_usuarios_ag_id_usuario']; ?></td>
+                <td><?php echo $usuarios[$actividad['tbl_usuarios_ag_id_usuario']]['nombre_real'].' '.$usuarios[$actividad['tbl_usuarios_ag_id_usuario']]['apellido_paterno']; ?></td>
                 <?php $asignado = $actividad['tbl_usuarios_ag_id_usuario']; ?>
             <?php } ?>
             <td>
-                <?=(isset($actividad['id_usuario_responsable'])) ? $actividad['id_usuario_responsable']: ''; ?>
+                <?=(isset($actividad['id_usuario_responsable'])) ? $usuarios[$actividad['id_usuario_responsable']]['nombre_real'].' '.$usuarios[$actividad['id_usuario_responsable']]['apellido_paterno']: ''; ?>
                 /
                 <?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?>
             </td>
@@ -77,9 +77,8 @@
                 }
 
             ?>
-            <td>Automovil Asignado</td>
-            <td>Telefono Asignado</td>
-            <td>
+            <td><?=(isset($atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
+            <td><?=(isset($atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
             <a href="<?=(isset($actividad['tbl_usuarios_ag_id_usuario'])) ? base_url().'index.php/tareas/mostrar_vistas_c/tarea_dia_usuario/0/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
                 <i class="foundicon-search">
                     Ver detalles
