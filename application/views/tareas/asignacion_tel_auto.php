@@ -25,9 +25,11 @@
     </div>
 </div>
 <div class="row">
-    <div class="large-10 large-offset-2 columns">
+    <div class="large-10 large-centered columns">
         <h2><small>Resumen Asignados del <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
+    </div>
+<div class="row">
     <div class="large-6 large-centered columns">
     <table class="footable table">
         <thead>
@@ -49,11 +51,11 @@
             <?php if($tarea != 0): ?>
             <?php foreach ($tarea as $actividad){ ?>
             <?php if(isset($actividad['tbl_usuarios_ag_id_usuario']) && ($asignado != $actividad['tbl_usuarios_ag_id_usuario'])){ ?>
-                <td><?php echo $actividad['tbl_usuarios_ag_id_usuario']; ?></td>
+                <td><?php echo $usuarios[$actividad['tbl_usuarios_ag_id_usuario']]['nombre_real'].' '.$usuarios[$actividad['tbl_usuarios_ag_id_usuario']]['apellido_paterno']; ?></td>
                 <?php $asignado = $actividad['tbl_usuarios_ag_id_usuario']; ?>
             <?php } ?>
             <td>
-                <?=(isset($actividad['id_usuario_responsable'])) ? $actividad['id_usuario_responsable']: ''; ?>
+                <?=(isset($actividad['id_usuario_responsable'])) ? $usuarios[$actividad['id_usuario_responsable']]['nombre_usuario']: ''; ?>
                 /
                 <?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?>
             </td>
@@ -77,11 +79,11 @@
 
             ?>
             <td>
-                <select id="automovil_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>">
-                    <option value="0" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">Propio</option>
+                <select data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" id="automovil_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" onchange="agregar_atributo_s('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'auto')">
+                    <option value="0">Propio</option>
                     <?php if(isset($atributos['AUTOMOVIL'])){ ?>
                     <?php foreach ($atributos['AUTOMOVIL'] as $automovil) { ?>
-                        <option id="opc_automovil_<?=$automovil['id_atributo']; ?>" value="<?=$automovil['id_atributo']; ?>" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">
+                        <option id="opc_automovil_<?=$automovil['nombre_atributo']; ?>" value="<?=$automovil['nombre_atributo']; ?>" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">
                             <?php print_r($automovil['nombre_atributo']); ?>
                         </option>
                     <?php } ?>
@@ -93,12 +95,12 @@
                 <input type="text" id="otro_auto_text_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" name="otro_auto" placeholder="Ejem. Tsuru Rojo" disabled="disabled" onchange="agregar_atributo('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'auto')" />
             </td>
             <td>
-                <select id="telefono_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>">
-                    <option value="0" data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">Propio</option>
+                <select data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" id="telefono_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" onchange="agregar_atributo_s('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'tel')">
+                    <option value="0">Propio</option>
                     <?php if(isset($atributos['TELEFONO'])){ ?>
                     <?php foreach ($atributos['TELEFONO'] as $telefono) { ?>
-                        <option id="opc_telefono_<?=$telefono['id_atributo']; ?>" value="<?=$automovil['id_atributo']; ?>" data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">
-                            <?php print_r($automovil['nombre_atributo']); ?>
+                        <option id="opc_telefono_<?=$telefono['id_atributo']; ?>" value="<?=$telefono['nombre_atributo']; ?>" data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">
+                            <?php print_r($telefono['nombre_atributo']); ?>
                         </option>
                     <?php } ?>
 

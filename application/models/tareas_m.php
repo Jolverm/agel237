@@ -368,11 +368,13 @@ class Tareas_m extends CI_Model {
      
      public function update_atributo($datos){
          
-         $this->db->where('nombre_atributo', $datos['nombre_atributo']);
+        $this->db->where('tipo_atributo', $datos['tipo_atributo']);
          
-         $this->db->where('fecha', $datos['fecha']);
-        
-         $this->db->update('atributos_ag', $datos);
+        $this->db->where('fecha', $datos['fecha']);
+
+        $this->db->where('tbl_usuarios_ag_id_usuario', $datos['tbl_usuarios_ag_id_usuario']);
+
+        $this->db->update('atributos_ag', $datos);
          
      }
      
@@ -382,13 +384,15 @@ class Tareas_m extends CI_Model {
          
          $this->db->from('atributos_ag');
          
-         $this->db->where('nombre_atributo', $datos['nombre_atributo']);
+         $this->db->where('tipo_atributo', $datos['tipo_atributo']);
          
          $this->db->where('fecha', $datos['fecha']);
+
+         $this->db->where('tbl_usuarios_ag_id_usuario', $datos['tbl_usuarios_ag_id_usuario']);
          
          $query = $this->db->get();
          
-         if($query->num_rows() >= 1){
+         if($query->num_rows() > 0){
         
             $datos['mensaje'] = 1;
         

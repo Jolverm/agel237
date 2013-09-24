@@ -28,6 +28,9 @@
     <div class="large-10 large-offset-2 columns">
         <h2><small>Resumen Asignados del <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
+    </div>
+<div class="row">
+
     <div class="large-6 large-centered columns">
     <table class="footable table">
         <thead>

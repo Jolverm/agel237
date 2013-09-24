@@ -331,6 +331,8 @@
 
             $datos['fechas'] = $this->tareas_m->obtener_fechas();
 
+            $datos['usuarios'] = $this->usuarios->traer_usuarios();
+
             if($opc != ''){
 
                 $datos['atributos'] = $this->tareas_m->catalogo_atributos();
@@ -527,9 +529,11 @@
             }
         
         //$datos = array('nombre_atributo' => 'Chevy Rojo', 'tipo_atributo' => 'AUTOMOVIL', 'fecha' => '2013-04-28', 'tbl_usuarios_ag_id_usuario' => '1');
-        
+
+        $datos['fecha'] = date("Y-m-d");
+
         $select = $this->tareas_m->select_add_atr($datos);
-        
+
         if($select['mensaje'] == 0){
             
             unset($datos['mensaje']);
@@ -543,8 +547,6 @@
             $this->tareas_m->update_atributo($datos);
             
         }
-        
-        
         
     }
        

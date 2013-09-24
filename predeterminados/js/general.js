@@ -119,22 +119,25 @@ function agregar_telefono(id){
 
 }
 
-$(document).ready(function(){
-    $('select').change(function(){
-        var $selectedOption = $(this).find('option:selected');
-        var selectedLabel = $selectedOption.text();
-        selectedLabel = $.trim(selectedLabel);
-        var selectedAsignado = $selectedOption.attr('data-asignado');
-        var date = $selectedOption.attr('data-date');
-        var type = $selectedOption.attr('data-type');
-         url = b + 'tareas/agregar_atributo/';
-        $.ajax({
-            url: url,
-            data: {nombre_atributo : selectedLabel, tipo_atributo : type, fecha: date ,tbl_usuarios_ag_id_usuario: selectedAsignado},
-            type: 'post'
-        });
+function agregar_atributo_s(id, tipo){
+    if(tipo == 'auto'){
+          var id_text = '#automovil_' + id;
+    } else {
+          var id_text = '#telefono_' + id;
+    }
+    var selectedLabel = $(id_text).val();
+    selectedLabel = $.trim(selectedLabel);
+    var selectedAsignado = $(id_text).attr('data-asignado');
+    var date = $(id_text).attr('data-date');
+    var type = $(id_text).attr('data-type');
+     url = b + 'tareas/agregar_atributo/';
+    $.ajax({
+        url: url,
+        data: {nombre_atributo : selectedLabel, tipo_atributo : type, fecha: date ,tbl_usuarios_ag_id_usuario: selectedAsignado},
+        type: 'post'
     });
-});
+}
+
 function agregar_atributo(id, tipo){
     var id_text = '#otro_' + tipo +'_text_' + id;
     var selectedLabel = $(id_text).val();
