@@ -9,6 +9,8 @@ class Usuario extends CI_Controller {
         $this->load->helper(array('url'));
         
         $this->load->library(array('session'));
+
+        $this->load->model(array('usuarios'));
         
     }
     
@@ -70,7 +72,26 @@ class Usuario extends CI_Controller {
             
         
     }
-    
+
+    public function agregar_usuario(){
+
+        foreach ($_POST as $campo => $valor){
+
+                $datos[$campo] = $valor;
+
+        }
+
+        $mensaje = $this->usuarios->agregar_usuario_m($datos);
+
+        if($mensaje > 0 ){
+            $mensaje = 'usuario_agregado_exitosamente';
+        } else {
+            $mensaje = 'usuario_no_agregado';
+        }
+
+        redirect(base_url().'index.php/tareas/mostrar_vistas_c/agregar_usuario/'.$mensaje);
+
+    }
     
 }
 

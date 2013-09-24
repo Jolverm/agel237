@@ -47,6 +47,26 @@ class Usuarios extends CI_Model {
         
     }
 
+    /* Trae los roles de un usuario */
+
+    public function traer_roles(){
+
+        $this->db->select();
+
+        $this->db->from('roles_ag');
+
+        $roles = $this->db->get();
+
+        foreach($roles->result_array() as $rol){
+            
+            $datos[$rol['id_rol']] = $rol;
+            
+        }
+
+        return $datos;
+
+    }
+
     public function traer_usuarios(){
 
         $this->db->select();
@@ -72,6 +92,28 @@ class Usuarios extends CI_Model {
         return $datos;
 
 
+    }
+
+    function traer_estructura(){
+
+        $fields = $this->db->field_data('usuarios_ag');
+
+        foreach ($fields as $field){
+            
+            $fields_data[] = $field;
+
+        }
+
+        return $fields_data;
+
+    }
+
+    public function agregar_usuario_m($datos){
+        
+        $query = $this->db->insert('usuarios_ag', $datos);
+        
+        return $this->db->count_all_results();
+        
     }
     
 }
