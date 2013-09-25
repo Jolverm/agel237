@@ -56,9 +56,10 @@
                 <?php $asignado = $actividad['tbl_usuarios_ag_id_usuario']; ?>
             <?php } ?>
             <td>
-                <?=(isset($actividad['id_usuario_responsable'])) ? $usuarios[$actividad['id_usuario_responsable']]['nombre_real'].' '.$usuarios[$actividad['id_usuario_responsable']]['apellido_paterno']: ''; ?>
+
+            <?php echo $actividad['id_usuario_responsable']; ?>
                 /
-                <?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?>
+            <?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?>
             </td>
             <?php } ?>
             <?php endif; ?>
@@ -77,7 +78,7 @@
                 }
 
             ?>
-            <td><?=(isset($atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
+            <td><?=(isset($atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
             <td><?=(isset($atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
             <a href="<?=(isset($actividad['tbl_usuarios_ag_id_usuario'])) ? base_url().'index.php/tareas/mostrar_vistas_c/tarea_dia_usuario/0/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
                 <i class="foundicon-search">

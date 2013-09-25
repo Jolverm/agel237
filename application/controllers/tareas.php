@@ -73,6 +73,8 @@
                     
                     $respuesta['tipo_formulario'] = 'agregar_tarea_c';
                     
+                    $respuesta['usuarios'] = $this->usuarios->traer_usuarios();
+
                     $datos['contenido'] = $this->load->view('tareas/agregar-editar_tarea', $respuesta, TRUE);
                     
                     break;
@@ -86,6 +88,8 @@
                         $datos['id_tarea'] = $tarea_id;
                         
                         $respuesta['tareas'] = $this->consulta_tareas_id_c($datos);
+
+                         $respuesta['usuarios'] = $this->usuarios->traer_usuarios();
                         
                     } else {
                         
@@ -141,6 +145,8 @@
 
                     $respuesta['dia'] = traducir_fecha(standard_date());
                     
+                    $respuesta['manana'] = false;
+
                     $respuesta['tareas'] = $this->consulta_tareas_dia_c($datos);
                     
                     $datos['contenido'] = $this->load->view('tareas/tarea_dia', $respuesta, TRUE);
@@ -169,7 +175,11 @@
                     
                     $datos = array('fecha' => $respuesta['dia']);
 
-                    $respuesta['dia'] = traducir_fecha(standard_date());
+                    $respuesta['manana'] = true;
+
+                    $fecha_dia_siguiente =  str_replace('-', 'de', date("D d - M - Y", strtotime( "$hoy + 1 day")));
+
+                    $respuesta['dia'] = traducir_fecha($fecha_dia_siguiente);
                     
                     $respuesta['tareas'] = $this->consulta_tareas_dia_c($datos);
                     
@@ -215,8 +225,10 @@
                 case 'asignar_tramites':
 
                     $respuesta['usuarios'] = $this->usuarios->traer_usuarios();
-    
-                    $respuesta['dia'] = date('Y-m-d');
+
+                    $hoy = date('Y-m-d');
+
+                    $respuesta['dia'] = date("Y-m-d", strtotime( "$hoy + 1 day")) ; 
                     
                     $datos = array('fecha' => $respuesta['dia']);
 
@@ -539,7 +551,9 @@
         
         //$datos = array('nombre_atributo' => 'Chevy Rojo', 'tipo_atributo' => 'AUTOMOVIL', 'fecha' => '2013-04-28', 'tbl_usuarios_ag_id_usuario' => '1');
 
-        $datos['fecha'] = date("Y-m-d");
+        $hoy = date('Y-m-d');
+
+        $datos['fecha'] = date("Y-m-d", strtotime( "$hoy + 1 day")) ; 
 
         $select = $this->tareas_m->select_add_atr($datos);
 
