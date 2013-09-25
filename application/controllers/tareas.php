@@ -253,6 +253,16 @@
                     }
 
                 break;
+
+                case 'agregar_usuario':
+
+                    $respuesta['campos'] = $this->usuarios->traer_estructura();
+
+                    $respuesta['roles'] = $this->usuarios->traer_roles();
+
+                    $datos['contenido'] = $this->load->view('usuarios/agregar-editar', $respuesta, TRUE);
+
+                break;
                 
             endswitch;
 
@@ -265,9 +275,6 @@
             $datos['pie'] = $this->load->view('general/pie', '', TRUE);
 
             $this->load->view('general/indice', $datos);
-            
-            
-            
             
         }
 
