@@ -23,8 +23,8 @@
                 <legend>Datos generales</legend>
                     <label>Cliente</label>
                     <input type="text" name="cliente" value="<?=(isset($tarea['cliente'])) ? $tarea['cliente'] : ''; ?>" placeholder="Nombre del Cliente" />
-                    <label>Abogado</label>
-                    <input type="text" name="id_usuario_responsable" placeholder="Ej. 1,7,3" />
+                    <label>Abogado(s)</label>
+                    <input type="text" name="id_usuario_responsable" placeholder="Ej. 1,7,3" required="required"/>
                     <label style="display:none"  class="firmas">Calle</label>
                     <select style="display:none"  class="firmas" name="calle">
                         <option value="1" <?=($tarea['calle'] == 1) ? 'selected="selected"' : ''; ?>>SI</option>
@@ -49,9 +49,15 @@
                     <input  style="display:none" class="firmas" type="text" name="numeros" value="<?=(isset($tarea['numeros'])) ? $tarea['numeros'] : ''; ?>" placeholder="12344,53211" />
                     <label>Asignado</label>
                     <select name="tbl_usuarios_ag_id_usuario">
-                        <option value="1" <?=($tarea['tbl_usuarios_ag_id_usuario'] == 1) ? 'selected="selected"' : ''; ?>>Gabriel</option>
-                        <option value="2" <?=($tarea['tbl_usuarios_ag_id_usuario'] == 2) ? 'selected="selected"' : ''; ?>>Rodrigo</option>
-                    </select>
+                    <?php if(isset($usuarios)){ ?>
+                    <?php foreach ($usuarios as $usuario) { ?>
+                            <option value="<?=$usuario['id_usuario']; ?>" <?=($tarea['tbl_usuarios_ag_id_usuario'] == $usuario['id_usuario']) ? 'selected="selected"' : ''; ?>>
+                            <?php echo $usuario['nombre_usuario']; ?>
+                        </option>
+                    <?php } ?>
+
+                    <?php } ?>
+                </select>
                     <label>Observaciones</label>
                     <input type="text" name="observaciones" value="<?=(isset($tarea['observaciones'])) ? $tarea['observaciones'] : ''; ?>" placeholder="ej. Puntual" />
                 <input type="submit" class="button" value="Guardar Cambios" />
@@ -110,13 +116,15 @@
             <input style="display:none" class="firmas" type="text" name="numeros">
             <label>Asignado</label>
             <select name="tbl_usuarios_ag_id_usuario">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-            </select>
+                    <?php if(isset($usuarios)){ ?>
+                    <?php foreach ($usuarios as $usuario) { ?>
+                        <option value="<?=$usuario['id_usuario']; ?>">
+                            <?php echo $usuario['nombre_usuario']; ?>
+                        </option>
+                    <?php } ?>
+
+                    <?php } ?>
+                </select>
             <label>Observaciones</label>
             <input type="text" placeholder="ej. Puntual" name="observaciones"/>
             <input type="submit" class="button" value="Agendar" />

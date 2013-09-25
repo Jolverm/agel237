@@ -74,9 +74,11 @@
         </tbody> 
     </table>
         
-        <div class="six columns push-eight">
+        <?php if(!$manana){?>
+<div class="six columns push-eight">
            <a a href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/tarea_manana/" > <i class="foundicon-right-arrow">Dia sguiente</i></a>
         </div>
+        <? } ?>
         
     </div>
 </div>

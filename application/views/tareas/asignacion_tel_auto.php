@@ -42,6 +42,7 @@
             <?php } ?>
             <th data-hide="">AUTOMOVIL</th>
             <th data-hide="">TELEFONO</th>
+            <th data-hide="">ACCIONES</th>
           </tr>
         </thead>
         <tbody>
@@ -55,7 +56,7 @@
                 <?php $asignado = $actividad['tbl_usuarios_ag_id_usuario']; ?>
             <?php } ?>
             <td>
-                <?=(isset($actividad['id_usuario_responsable'])) ? $usuarios[$actividad['id_usuario_responsable']]['nombre_usuario']: ''; ?>
+                <?=(isset($actividad['id_usuario_responsable'])) ? $actividad['id_usuario_responsable']: ''; ?>
                 /
                 <?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?>
             </td>
