@@ -47,5 +47,19 @@
 });
  </script>
 
+<script>
+    $(document).ready(function() {
+      var ocultar = $('.tipoTramiteEdicion').val();
+      if(ocultar == 1){
+         $('.firmas').show();
+        $('.tramites').hide(1000);
+      } else {
+         $('.tramites').show();
+        $('.firmas').hide(1000);
+      } 
+  });
+ </script>
+
+
 </body>
 </html>

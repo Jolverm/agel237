@@ -221,7 +221,7 @@
                 </div>
             </div>
             <div class="four columns centered">
-                <input type="submit" class="button" value="Agendar" onClick="confirm( 'Estas Seguro que deseas eliminar?' )">/>
+                <input type="submit" class="button" value="Agendar" onClick="confirm( 'Estas Seguro que deseas eliminar?' )">
             </div>
         </fieldset>
     </form>

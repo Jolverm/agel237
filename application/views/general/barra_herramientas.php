@@ -5,29 +5,29 @@
       <i class="foundicon-home"> Inicio</i>
     </a>
 
-    <a class="small button" href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/tarea_dia/">
+    <a class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/tarea_dia/">
       <i class="foundicon-calendar">Agenda dia</i>
     </a>
     
-    <a class="small button" href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/tarea_usuario">
+    <a class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/tarea_usuario">
       <i class="foundicon-address-book"> Mi Agenda </i>
     </a>
     
-    <a class="small button" href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/agregar_tarea">
+    <a class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/agregar_tarea">
       <i class="foundicon-add-doc"> Nueva </i>
     </a>
     
-    <a   class="small button" href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/resumen">
+    <a   class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/resumen">
       <i class="foundicon-folder"> Resumen </i>
     </a>
     
         <?php if(isset($permisos) && ($permisos['tbl_roles_ag_id_rol'] == 1 || $permisos['tbl_roles_ag_id_rol'] == 2)){ ?>
     
-    <a class="small button" href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/asignar_tramites">
+    <a class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/asignar_tramites">
       <i class="foundicon-add-doc"> Asignar trmaites </i>
     </a>
     
-    <a class="small button" href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/asignar_ta">
+    <a class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/asignar_ta">
       <i class="foundicon-add-doc"> Asignar Tel. Auto </i>
     </a>  
     <?php } ?>

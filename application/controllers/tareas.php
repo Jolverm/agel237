@@ -127,11 +127,19 @@
                     
                 case 'tarea_usuario':
 
+                    $datos['dia'] = date('Y-m-d');
+                    
+                    $datos = array('fecha' => $datos['dia']);
+
+                    $datos['dia'] = traducir_fecha(standard_date());
+
                     $datos['id_usuario'] = $data['id_usuario'];
 
                     $datos['fecha'] = date('Y-m-d');
 
                     $datos['tareas'] = $this->tareas_m->consulta_tareas_usuario_m($datos);
+
+                    $datos['usuarios'] = $this->usuarios->traer_usuarios();
                     
                     $datos['contenido'] = $this->load->view('tareas/tarea_usuario', $datos, TRUE);
                     
@@ -148,6 +156,8 @@
                     $respuesta['manana'] = false;
 
                     $respuesta['tareas'] = $this->consulta_tareas_dia_c($datos);
+
+                    $respuesta['usuarios'] = $this->usuarios->traer_usuarios();
                     
                     $datos['contenido'] = $this->load->view('tareas/tarea_dia', $respuesta, TRUE);
                     
@@ -156,12 +166,16 @@
                   case 'tarea_dia_usuario':
                     
                     $respuesta['dia'] = date('Y-m-d');
+
+                    $respuesta['manana'] = true;
                     
                     $datos = array('fecha' => $respuesta['dia'], 'id_usuario' => $data['id_usuario']);
 
                     $respuesta['dia'] = traducir_fecha(standard_date());
 
                     $respuesta['tareas'] = $this->consulta_tareas_dia_c($datos);
+
+                    $respuesta['usuarios'] = $this->usuarios->traer_usuarios();
                     
                     $datos['contenido'] = $this->load->view('tareas/tarea_dia', $respuesta, TRUE);
                     
@@ -234,7 +248,7 @@
 
                     $respuesta['tareas'] = $this->consulta_tareas_dia_c($datos);
 
-                    $respuesta['dia'] = traducir_fecha(standard_date());
+                    $respuesta['dia'] = traducir_fecha(str_replace('-', 'de', date("D d - M - Y", strtotime( "$hoy + 1 day"))));
 
                     $datos['contenido'] = $this->load->view('tareas/asignacion_tramites', $respuesta, TRUE);
 
@@ -248,7 +262,11 @@
 
                     } else {
 
-                        $datos['contenido'] = $this->resumen_c('', 'asignar_ta');
+                        $hoy = date('Y-m-d');
+
+                        $dia_siguiente = date("D d - M - Y", strtotime( "$hoy + 1 day"));
+
+                        $datos['contenido'] = $this->resumen_c($dia_siguiente, 'asignar_ta');
 
                     }
 
@@ -332,7 +350,7 @@
 
                 $hoy = date('Y-m-d');   
 
-                $respuesta['dia'] = date("Y-m-d", strtotime( "$hoy + 1 day")) ; 
+                $respuesta['dia'] = date("Y-m-d") ; 
 
                 $datos['dia'] = traducir_fecha(standard_date());
                 
@@ -341,6 +359,10 @@
             } else {
                  
                 $respuesta['dia'] = $date;
+
+                $datos['dia'] = $date;
+
+                $datos['dia'] =  traducir_fecha( str_replace('-', 'de', date("D d - M - Y", strtotime( "$date"))));
                 
                 $datos['fecha_resumen']=$date;
             
