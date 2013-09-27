@@ -24,20 +24,20 @@
         
               <tr>
                   <td><strong>INSTITUCIÓN</strong> </td> 
-                  <td><?=isset($tarea['institucion']) ? $tarea['institucion'] : ''; ?></td>
+                  <td><?=(isset($tarea['institucion']) && $tarea['institucion'] != '') ? $tarea['institucion'] : '-----'; ?></td>
                 </tr>
                 <tr>
                   <td><strong>CLIENTE</strong></td>
-                  <td><?=isset($tarea['horario']) ? $tarea['horario'] : ''; ?></td>
+                  <td><?=(isset($tarea['cliente']) && $tarea['cliente'] != '') ? $tarea['cliente'] : ''; ?></td>
                 </tr>
                 
                 <tr>
                   <td><strong>ACTIVIDAD</strong></td>
-                  <td><?=isset($tarea['actividad']) ? $tarea['actividad'] : ''; ?></td>
+                  <td><?=(isset($tarea['actividad']) && $tarea['actividad'] != '') ? $tarea['actividad'] : '-----'; ?></td>
                 </tr>
                 <tr>
                   <td><strong>OPERACIÓN</strong> </td>
-                  <td><?=isset($tarea['operacion']) ? $tarea['operacion'] : ''; ?></td>
+                  <td><?=(isset($tarea['operacion']) && $tarea['operacion'] != '') ? $tarea['operacion'] : '-----'; ?></td>
                 </tr>
                 <tr>
                   <td><strong>ASIGNADOS</strong> </td>
@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                   <td><strong>OBSERVACIONES</strong> </td>
-                  <td><?=isset($tarea['observaciones']) ? $tarea['observaciones'] : ''; ?></td>
+                  <td><?=(isset($tarea['observaciones']) && $tarea['observaciones'] != '') ? $tarea['observaciones'] : ''; ?></td>
                 </tr>
                 <tr>
                   <td><strong>ABOGADO</strong></td>
@@ -53,15 +53,45 @@
                 </tr>
                 <tr>
                   <td><strong>CALLE</strong> </td>
-                  <td><?=isset($tarea['calle']) ? $tarea['calle'] : ''; ?></td>
+                  <td>
+                <?php
+                if(isset($tarea['calle'])):
+                    switch ($tarea['calle']):
+                        case(0):
+                            echo 'NO';
+                            break;
+                        case(1):
+                            echo 'SI';
+                            break;
+                        case(''):
+                            echo '---';
+                            break;
+                    endswitch;
+                endif; ?>
+            </td> 
                 </tr>
                 <tr>
                   <td><strong>NUMEROS</strong> </td>
-                  <td><?=isset($tarea['numeros']) ? $tarea['numeros'] : ''; ?></td>
+                  <td><?=(isset($tarea['numeros']) && $tarea['numeros'] != '') ? $tarea['numeros'] : '----'; ?></td>
                 </tr>
                 <tr>
                     <td><strong>RPP </strong></td>
-                  <td><?=isset($tarea['rpp']) ? $tarea['rpp'] : ''; ?></td>
+                   <td>
+                    <?php
+                    if(isset($tarea['rpp'])):
+                        switch ($tarea['rpp']):
+                            case('ESTADO'):
+                                echo 'ESTADO';
+                                break;
+                            case('DF'):
+                                echo 'DF';
+                                break;
+                            case(''):
+                                echo '---';
+                                break;
+                        endswitch;
+                    endif; ?>
+              </td> 
                 </tr>
                  
               </tbody>

@@ -6,7 +6,7 @@
     <!-- INICIA EL FORMULARIO EDITAR TAREA-->
        <?php if(isset($tareas)): foreach ($tareas as $tarea): ?>
                 <input style="display:none" type="text" name="id_tarea" value="<?=(isset($tarea['id_tarea'])) ? $tarea['id_tarea'] : ''; ?>">
-                <select class="large-2 large-offset-5 large-centered tipoTramite">
+                <select class="large-2 large-offset-5 large-centered tipoTramiteEdicion"  id="id_tipo_tarea" name="id_tipo_tarea" >
                     <option value="1" <?=($tarea['id_tipo_tarea'] == 1) ? 'selected="selected"' : ''; ?>>Firma</option>
                     <option value="0" <?=($tarea['id_tipo_tarea'] == 0) ? 'selected="selected"' : ''; ?>>Tramite</option>
                 </select>
@@ -24,7 +24,7 @@
                     <label>Cliente</label>
                     <input type="text" name="cliente" value="<?=(isset($tarea['cliente'])) ? $tarea['cliente'] : ''; ?>" placeholder="Nombre del Cliente" />
                     <label>Abogado(s)</label>
-                    <input type="text" name="id_usuario_responsable" placeholder="Ej. 1,7,3" required="required"/>
+                    <input type="text" name="id_usuario_responsable" value="<?=(isset($tarea['id_usuario_responsable'])) ? $tarea['id_usuario_responsable'] : ''; ?>"placeholder="Ej. 1,7,3" required="required"/>
                     <label style="display:none"  class="firmas">Calle</label>
                     <select style="display:none"  class="firmas" name="calle">
                         <option value="1" <?=($tarea['calle'] == 1) ? 'selected="selected"' : ''; ?>>SI</option>
@@ -70,6 +70,7 @@
 <!-- INICIA EL FORMULARIO AGREGAR TAREA--> 
 <section class="row">
     <select class="large-2 small-6 small-offset-3 large-offset-3  large-centered tipoTramite" id="id_tipo_tarea" name="id_tipo_tarea">
+        <option value="none">Elige una actividad</option>
         <option value="1">Firma</option>
         <option value="0">Tramite</option>
     </select>
@@ -109,6 +110,7 @@
             <input style="display:none"  class="firmas" type="text" placeholder="CV, Donacion, Poder" name="operacion">
             <label style="display:none"  class="firmas">RPP</label>
             <select style="display:none" class="firmas" name="rpp">
+                <option value="NA" selected>NO APLICA</option>
                 <option value="DF">DF</option>
                 <option value="ESTADO">ESTADO</option>
             </select>

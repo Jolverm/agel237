@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="large-7 large-centered columns ">
+    <div class="large-8 large-centered columns ">
         <h2><small>Actividades del dia <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
     <div class="large-12 large-centered columns">
@@ -16,6 +16,7 @@
             <th data-hide="phone">Numeros</th>
             <th data-hide="phone">Asignado</th>
             <th data-hide="phone">Domicilio</th>
+            <th data-hide="phone">actividad</th>            
             <th data-hide="phone">Horario</th>
             <th data-hide="phone">Observaciones</th>
             <th data-hide="phone">acciones</th>
@@ -28,24 +29,6 @@
             <td><?=isset($tarea['cliente']) ? $tarea['cliente'] : ''; ?></td>
             <td>
                 <?php
-                if(isset($tarea['calle'])):
-                    switch ($tarea['calle']):
-                        case(0):
-                            echo 'NO';
-                            break;
-                        case(1):
-                            echo 'SI';
-                            break;
-                        case(''):
-                            echo '';
-                            break;
-                    endswitch;
-                endif; ?>
-            </td>    
-            <td><?=isset($tarea['id_usuario_responsable']) ? $tarea['id_usuario_responsable'] : ''; ?></td>
-            <td><?=isset($tarea['institucion']) ? $tarea['institucion'] : ''; ?></td>
-            <td><?=isset($tarea['operacion']) ? $tarea['operacion'] : ''; ?></td>
-            <td>  <?php
                 if(isset($tarea['rpp'])):
                     switch ($tarea['rpp']):
                         case('ESTADO'):
@@ -55,14 +38,39 @@
                             echo 'DF';
                             break;
                         case(''):
-                            echo '';
+                            echo '---';
                             break;
                     endswitch;
                 endif; ?>
-           <td><?=isset($tarea['numero']) ? $tarea['numero'] : ''; ?></td>
-            <td><?=isset($tarea['tbl_usuarios_ag_id_usuario']) ? $tarea['tbl_usuarios_ag_id_usuario'] : ''; ?></td>
-            <td><?=isset($tarea['domicilio']) ? $tarea['domicilio'] : ''; ?></td>
-            <td><?=isset($tarea['horario']) ? $tarea['horario'] : ''; ?></td>
+            </td> 
+            <td><?=isset($tarea['id_usuario_responsable']) ? $tarea['id_usuario_responsable'] : ''; ?></td>
+            <td><?=(isset($tarea['institucion']) && $tarea['institucion'] != '') ? $tarea['institucion'] : '-----'; ?></td>
+            <td><?=(isset($tarea['operacion']) && $tarea['operacion'] != '' ) ? $tarea['operacion'] : '-----'; ?></td>
+            <td>
+                <?php
+                if(isset($tarea['calle'])):
+                    switch ($tarea['calle']):
+                        case(0):
+                            echo 'NO';
+                            break;
+                        case(1):
+                            echo 'SI';
+                            break;
+                        case(''):
+                            echo '---';
+                            break;
+                    endswitch;
+                endif; ?>
+            </td> 
+            <td><?=(isset($tarea['numero']) && $tarea['numero'] != '') ? $tarea['numero'] : '-----'; ?></td>
+            <td>
+            <?php if(isset($usuarios)){ ?>
+                    <?=isset($tarea['tbl_usuarios_ag_id_usuario'])  ?  $usuarios[$tarea['tbl_usuarios_ag_id_usuario']]['nombre_usuario'] : ''; ?></td>
+                    <?php } ?>
+            </td>
+           <td><?=(isset($tarea['domicilio']) && $tarea['domicilio'] != '') ? $tarea['domicilio'] : '-----'; ?></td>
+            <td><?=(isset($tarea['actividad']) && $tarea['actividad'] != '') ? $tarea['actividad'] : '-----'; ?></td>
+            <td><?=(isset($tarea['horario']) && $tarea['horario'] != '' )? $tarea['horario'] : '-----'; ?></td>
             <td><?=isset($tarea['observaciones']) ? $tarea['observaciones'] : ''; ?></td>
             <td>
                 <a onclick="ver_tarea('<?=isset($tarea['id_tarea']) ? $tarea['id_tarea'] : ''; ?>')" > <i class="foundicon-search">   - Ver</i></a>
@@ -71,7 +79,7 @@
             </td>
           </tr>
         <?php endforeach; ?>
-        </tbody> 
+        </ tbody> 
     </table>
         
         <?php if(!$manana){?>

@@ -1,19 +1,12 @@
-<pre><?php //print_r($tareas); ?></pre>
 <?php
-
     $count = 0;
-
     foreach ($tareas as $tarea) {
-        
         if($count < count($tarea)){
-
             $count = count($tarea);
-
         }
-
     }
-
 ?>
+
 <div class="row">
     <div class="large-6 large-centered columns">
         <select name="date_resume" id="date_resume" onchange="resumen_date()">
@@ -24,25 +17,25 @@
         </select>
     </div>
 </div>
+
 <div class="row">
     <div class="large-10 large-offset-2 columns">
         <h2><small>Resumen Asignados del <?=isset($dia) ? $dia : ''; ?></small></h2>
     </div>
     </div>
-<div class="row">
 
-    <div class="large-6 large-centered columns">
+<div class="row">
+    <div class="large-12 large-centered columns">
     <table class="footable table">
         <thead>
           <tr>
             <th data-hide="">ASIGNADO</th>
-            <?php for($i = 1; $i <= $count; $i++){ ?>
-
-                <th data-hide="">ACTIVIDAD <?php echo($i); ?></th>
-
-            <?php } ?>
+                <?php for($i = 1; $i <= $count; $i++){ ?>
+            <th data-hide="">ACTIVIDAD <?php echo($i); ?></th>
+                <?php } ?>
             <th data-hide="">AUTOMOVIL</th>
             <th data-hide="">TELEFONO</th>
+            <th data-hide="">ACCIONES</th>
           </tr>
         </thead>
         <tbody>
@@ -55,36 +48,28 @@
                 <td><?php echo $usuarios[$actividad['tbl_usuarios_ag_id_usuario']]['nombre_real'].' '.$usuarios[$actividad['tbl_usuarios_ag_id_usuario']]['apellido_paterno']; ?></td>
                 <?php $asignado = $actividad['tbl_usuarios_ag_id_usuario']; ?>
             <?php } ?>
-            <td>
+            <?php if($actividad['id_tipo_tarea'] == 1): ?>
+                    <td><?php echo $actividad['id_usuario_responsable']; ?>/<?=(isset($actividad['cliente'])) ? $actividad['cliente']: ''; ?></td>
+                <?php else: ?>
+                    <td><?php echo $actividad['id_usuario_responsable']; ?>/<?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?></td>
+                <?php endif; ?>
 
-            <?php echo $actividad['id_usuario_responsable']; ?>
-                /
-            <?=(isset($actividad['institucion'])) ? $actividad['institucion']: ''; ?>
-            </td>
+
             <?php } ?>
             <?php endif; ?>
             <?php 
 
                 if(count($tarea) < $count){
-
                     $dif = $count - count($tarea);
-
                     for($j = 0; $j < $dif; $j++){
-
-                        ?><td></td><?php
-
-                    }
-
-                }
-
-            ?>
+                        ?><td></td>
+                    <?php }
+                    }?>
             <td><?=(isset($atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
             <td><?=(isset($atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
-            <a href="<?=(isset($actividad['tbl_usuarios_ag_id_usuario'])) ? base_url().'index.php/tareas/mostrar_vistas_c/tarea_dia_usuario/0/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
-                <i class="foundicon-search">
-                    Ver detalles
-                </i>
-            </a>
+            <td> <a href="<?=(isset($actividad['tbl_usuarios_ag_id_usuario'])) ? base_url().'index.php/tareas/mostrar_vistas_c/tarea_usuario/0/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
+                <i class="foundicon-search">Ver detalles</i>
+                </a>
             </td>
           </tr>
         <?php } ?>

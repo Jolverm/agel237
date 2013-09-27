@@ -12,7 +12,6 @@
             <th>ACTIVIDAD</th>
             <th>DOMICILIO</th>
             <th>ASIGNADO</th>
-            
           </tr>
         </thead>
         <tbody>
