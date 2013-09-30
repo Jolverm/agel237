@@ -62,11 +62,13 @@
                     endswitch;
                 endif; ?>
             </td> 
-            <td><?=(isset($tarea['numero']) && $tarea['numero'] != '') ? $tarea['numero'] : '-----'; ?></td>
+            <td>
+                <?=(isset($tarea['numero']) && $tarea['numero'] != '') ? $tarea['numero'] : '-----'; ?>
+            </td>
             <td>
             <?php if(isset($usuarios)){ ?>
-                    <?=isset($tarea['tbl_usuarios_ag_id_usuario'])  ?  $usuarios[$tarea['tbl_usuarios_ag_id_usuario']]['nombre_usuario'] : ''; ?></td>
-                    <?php } ?>
+                <?=isset($tarea['tbl_usuarios_ag_id_usuario'])  ?  $usuarios[$tarea['tbl_usuarios_ag_id_usuario']]['nombre_usuario'] : ''; ?></td>
+            <?php } ?>
             </td>
            <td><?=(isset($tarea['domicilio']) && $tarea['domicilio'] != '') ? $tarea['domicilio'] : '-----'; ?></td>
             <td><?=(isset($tarea['actividad']) && $tarea['actividad'] != '') ? $tarea['actividad'] : '-----'; ?></td>
@@ -79,14 +81,17 @@
             </td>
           </tr>
         <?php endforeach; ?>
-        </ tbody> 
+        </tbody> 
     </table>
         
-        <?php if(!$manana){?>
-<div class="six columns push-eight">
-           <a a href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/tarea_manana/" > <i class="foundicon-right-arrow">Dia sguiente</i></a>
+        <?php if(!$manana){ ?>
+        <div class="six columns push-eight">
+           <a a href="<?=base_url(); ?>/index.php/tareas/mostrar_vistas_c/tarea_manana/" >
+                <i class="foundicon-right-arrow">
+                    Dia sguiente
+                </i>
+            </a>
         </div>
-        <? } ?>
-        
+        <?php } ?>
     </div>
 </div>

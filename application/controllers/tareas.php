@@ -287,7 +287,7 @@
             $datos['encabezado'] = $this->load->view('general/encabezado', $encabezado, TRUE);
 
             $datos['permisos'] = $this->session->all_userdata();
-            
+
             $datos['barra_herramientas'] = $this->load->view('general/barra_herramientas', $datos, TRUE);
 
             $datos['pie'] = $this->load->view('general/pie', '', TRUE);

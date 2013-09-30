@@ -1,4 +1,5 @@
 <div class="row"> <!-- Inicia Barra de Herramientas-->
+
   <div class="large-12 large-centered columns">
    
     <a class="small button" href="<?=base_url(); ?>index.php/bienvenido"> 
@@ -21,7 +22,7 @@
       <i class="foundicon-folder"> Resumen </i>
     </a>
     
-        <?php if(isset($permisos) && ($permisos['tbl_roles_ag_id_rol'] == 1 || $permisos['tbl_roles_ag_id_rol'] == 2)){ ?>
+        <?php if(isset($permisos) && ($permisos['tbl_roles_ag_id_rol'] == 1)){ ?>
     
     <a class="small button" href="<?=base_url(); ?>index.php/tareas/mostrar_vistas_c/asignar_tramites">
       <i class="foundicon-add-doc"> Asignar trmaites </i>
