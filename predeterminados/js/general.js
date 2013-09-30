@@ -184,3 +184,7 @@ function agregar_atributo(id, tipo){
         type: 'post'
     });
 }
+
+$(document).ready(function(){
+  $( "#fecha" ).datepicker({ dateFormat: "yy-mm-dd" });
+});

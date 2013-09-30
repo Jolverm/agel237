@@ -12,8 +12,10 @@
 
   <!-- Iconos Generales oundicons -->
   <link rel="stylesheet" href="<?=base_url(); ?>predeterminados/css/frameworks/general_foundicons.css">    
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">    
   <!-- Inserta la libreria modernizer y jQuery, esta ultima desde los servidores de Google-->
   <script src="<?=base_url(); ?>predeterminados/js/frameworks/vendor/custom.modernizr.js"></script>
+  
 </head> <!-- Termina Head-->
 
 <body>

@@ -14,7 +14,7 @@
             <fieldset>
                 <legend>Fecha y Hora</legend>
                     <label>Fecha</label>
-                    <input type="date" name="fecha" value="<?=(isset($tarea['fecha'])) ? $tarea['fecha'] : ''; ?>" placeholder="dd/mm/aaaa" />
+                    <input type="date" name="fecha" id="fecha" value="<?=(isset($tarea['fecha'])) ? $tarea['fecha'] : ''; ?>" placeholder="aaaa-mm-dd" />
                     <label>Hora</label>
                     <input type="time" name="hora" value="<?=(isset($tarea['hora'])) ? $tarea['hora'] : ''; ?>" placeholder="hh:mm" />                    
             </fieldset>
@@ -79,7 +79,7 @@
         <legend>Fecha y Hora</legend>
             <div>
                  <label>Fecha</label>
-                 <input type="date" name="fecha" placeholder="dd/mm/aaaa" />
+                 <input type="text" id="fecha" name="fecha" placeholder="aaaa-mm-dd" />
             </div>
             <div>
                  <label>Hora</label>

@@ -8,6 +8,7 @@
 <!-- Inserta la libreria general de foundation -->
 <script src="<?=base_url(); ?>predeterminados/js/frameworks/vendor/jquery.js"></script>
 
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 <!-- Inserta la libreria de tablas responsivas -->
  <script src="<?=base_url(); ?>predeterminados/js/frameworks/footable.js"></script>  

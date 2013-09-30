@@ -67,8 +67,9 @@
                     }?>
             <td><?=(isset($atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['AUTOMOVIL'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
             <td><?=(isset($atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'])) ? $atributos['TELEFONO'][$actividad['tbl_usuarios_ag_id_usuario']]['nombre_atributo'] : ''; ?></td>
-            <td> <a href="<?=(isset($actividad['id_tarea'])) ? base_url().'index.php/tareas/mostrar_vistas_c/consulta_tareas_id/'.$actividad['id_tarea'].'/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
-                <i class="foundicon-search">Ver detalles</i>
+            <td>
+                <a href="<?=(isset($actividad['id_tarea'])) ? base_url().'index.php/tareas/mostrar_vistas_c/consulta_tareas_id/'.$actividad['id_tarea'].'/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
+                    <i class="foundicon-search">Ver detalles</i>
                 </a>
             </td>
           </tr>
