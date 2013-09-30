@@ -28,7 +28,7 @@ class Usuario extends CI_Controller {
         
         if(isset($respuesta['mensaje']) && $respuesta['mensaje'] == 0){
             
-            redirect(base_url());
+            redirect(base_url().'/index.php/bienvenido/index/usuario_o_contrasena_incorrectos');
             
         } else {
             

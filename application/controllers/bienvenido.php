@@ -19,7 +19,7 @@ class bienvenido extends CI_Controller {
 
     		if(empty($sesion)){
 
-    			$datos['mensaje'] = $mensaje;
+    			$datos['mensaje'] = ucwords(str_replace(array('_', 'contrasena'), array(' ', 'contraseña'), $mensaje));
         
 	            $datos['barra_herramientas'] = $this->load->view('general/barra_herramientas', '', TRUE);
 
