@@ -41,7 +41,7 @@
 
                 $encabezado['mensaje'] = $mensaje;
 
-                $encabezado['mensaje'] = ucwords(str_replace(array('_', 'sm', 'nm'), array(' ', '', 'nm'), $encabezado['mensaje']));
+                $encabezado['mensaje'] = ucwords(str_replace(array('_', 'sm', 'nm'), array(' ', '', ''), $encabezado['mensaje']));
 
             } else {
 
