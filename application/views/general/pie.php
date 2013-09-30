@@ -2,6 +2,7 @@
 </footer>
 <!-- Incluir archivos JS -->
 
+<script type="text/javascript"> var b = '<?=base_url() . 'index.php/' ; ?>' ; </script>
 
 <!-- Inserta la libreria de tablas responsivas -->
  <script src="<?=base_url(); ?>predeterminados/js/frameworks/vendor/zepto.js"></script>  
@@ -18,7 +19,6 @@
 <!-- Inserta la libreria de las funciones generales del sistema -->
 <script src="<?=base_url(); ?>predeterminados/js/general.js"></script>
 <!-- Inserta la libreria de tablas responsivas-->
-<script type="text/javascript"> var b = '<?=base_url() . 'index.php/' ; ?>' ; </script>
 
 <script type="text/javascript">
   $(function () {

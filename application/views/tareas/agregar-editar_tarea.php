@@ -22,7 +22,7 @@
             <fieldset>
                 <legend>Datos generales</legend>
                     <label>Cliente</label>
-                    <input type="text" name="cliente" value="<?=(isset($tarea['cliente'])) ? $tarea['cliente'] : ''; ?>" placeholder="Nombre del Cliente" />
+                    <input type="text" id="cliente" name="cliente" value="<?=(isset($tarea['cliente'])) ? $tarea['cliente'] : ''; ?>" placeholder="Nombre del Cliente" />
                     <label>Abogado(s)</label>
                     <input type="text" name="id_usuario_responsable" value="<?=(isset($tarea['id_usuario_responsable'])) ? $tarea['id_usuario_responsable'] : ''; ?>"placeholder="Ej. 1,7,3" required="required"/>
                     <label style="display:none"  class="firmas">Calle</label>
@@ -90,7 +90,7 @@
     <fieldset class="large-6 large-centered columns">
         <legend>Datos generales</legend>
             <label>Cliente</label>
-            <input type="text" name="cliente">
+            <input type="text" id="cliente" name="cliente">
             <label>Abogado(s)</label>
             <input type="text" name="id_usuario_responsable" placeholder="Ej. 1,7,3" />
             <label style="display:none"  class="firmas">Calle</label>

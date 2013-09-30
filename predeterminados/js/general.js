@@ -186,5 +186,15 @@ function agregar_atributo(id, tipo){
 }
 
 $(document).ready(function(){
+  //Campo Cliente
+  var uri = b + 'tareas/traer_clientes';
+  $.ajax({
+    url : uri,
+    type : 'POST',
+    success : function(data){
+        $( "#cliente" ).autocomplete({ source: $.parseJSON(data) });
+    }
+  });
+
   $( "#fecha" ).datepicker({ dateFormat: "yy-mm-dd" });
 });

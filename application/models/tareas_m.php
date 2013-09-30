@@ -430,7 +430,35 @@ class Tareas_m extends CI_Model {
         return $datos;
          
      }
-    
+
+     public function select_clientes()
+     {
+
+        $this->db->select('cliente');
+
+        $this->db->from('tareas_ag');
+
+        $this->db->group_by('cliente');
+
+        $query = $this->db->get();
+
+        if($query->num_rows() < 1){
+        
+            $datos['mensaje'] = 0;
+        
+        } else {
+        
+            foreach($query->result_array() as $row){
+            
+                $datos[] = $row['cliente'];
+                
+            }
+        
+        }
+        
+        return $datos;
+         
+     }
     
 }// FIn de Clase Tareas_m
 ?>

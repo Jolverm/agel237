@@ -594,6 +594,36 @@
         }
         
     }
+
+    /* Las dos funciones siguientes traen listas que son devueltes como json */
+
+    public function traer_clientes(){
+
+      $clientes = $this->tareas_m->select_clientes();
+
+      $clientes = json_encode($clientes);
+
+      print_r($clientes);
+
+    }
+
+
+
+    public function traer_usuarios_lista(){
+
+      $usuarios = $this->usuarios->traer_usuarios();
+
+      foreach ($usuarios as $usuario ) {
+        
+        $lista[$usuario['id_usuario']] = array('label' => $usuario['nombre_real'].' '.$usuario['apellido_paterno'], 'value' => $usuario['id_usuario']);
+
+      }
+
+      $lista = json_encode($lista);
+
+      print_r($lista);
+
+    }
        
         
         
