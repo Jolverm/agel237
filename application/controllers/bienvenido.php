@@ -21,7 +21,7 @@ class bienvenido extends CI_Controller {
 
     			$datos['mensaje'] = ucwords(str_replace(array('_', 'contrasena'), array(' ', 'contraseña'), $mensaje));
         
-	            $datos['barra_herramientas'] = $this->load->view('general/barra_herramientas', '', TRUE);
+	            //$datos['barra_herramientas'] = $this->load->view('general/barra_herramientas', '', TRUE);
 
 	            $datos['encabezado'] = $this->load->view('general/encabezado', $datos, TRUE);
 	            

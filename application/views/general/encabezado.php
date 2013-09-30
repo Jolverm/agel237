@@ -17,12 +17,12 @@
 </head> <!-- Termina Head-->
 
 <body>
+  <?php if((isset($mensaje)) && ($mensaje)): ?>
     <header class="row" id="mensaje_head">
-        <?php if((isset($mensaje) && $mensaje != 'sm')):?>
         <div class="alert-box success">
             <?=$mensaje ?>
             <a href="" class="close">&times;</a>
         </div>
-        <?php endif; ?>
     </header>
+<?php endif; ?>
      
