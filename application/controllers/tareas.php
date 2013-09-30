@@ -350,7 +350,7 @@
 
                 $hoy = date('Y-m-d');   
 
-                $respuesta['dia'] = date("Y-m-d") ; 
+                $respuesta['dia'] = date("Y-m-d");
 
                 $datos['dia'] = traducir_fecha(standard_date());
                 
@@ -358,7 +358,7 @@
 
             } else {
                  
-                $respuesta['dia'] = $date;
+                $respuesta['dia'] = date("Y-m-d");
 
                 $datos['dia'] = $date;
 

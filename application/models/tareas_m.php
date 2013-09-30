@@ -187,8 +187,6 @@ class Tareas_m extends CI_Model {
             $this->db->where('fecha', $datos['dia']);
 
         }
-
-        
         
         $this->db->where('estatus', 1);
         

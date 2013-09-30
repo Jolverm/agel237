@@ -42,7 +42,6 @@
             <?php } ?>
             <th data-hide="">AUTOMOVIL</th>
             <th data-hide="">TELEFONO</th>
-            <th data-hide="">ACCIONES</th>
           </tr>
         </thead>
         <tbody>
@@ -80,11 +79,10 @@
 
             ?>
             <td>
-                <select data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" id="automovil_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" onchange="agregar_atributo_s('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'auto')">
-                    <option value="0">Propio</option>
+                <select data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" id="automovil_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>">
                     <?php if(isset($atributos['AUTOMOVIL'])){ ?>
                     <?php foreach ($atributos['AUTOMOVIL'] as $automovil) { ?>
-                        <option id="opc_automovil_<?=$automovil['nombre_atributo']; ?>" value="<?=$automovil['nombre_atributo']; ?>" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">
+                        <option value="<?=$automovil['nombre_atributo']; ?>">
                             <?php print_r($automovil['nombre_atributo']); ?>
                         </option>
                     <?php } ?>
@@ -93,11 +91,11 @@
                 </select>
                 <label>Otro</label>
                 <input type="checkbox" id="otro_auto_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" name="otro_auto" onchange="agregar_coche('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>')" />
-                <input type="text" id="otro_auto_text_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" name="otro_auto" placeholder="Ejem. Tsuru Rojo" disabled="disabled" onchange="agregar_atributo('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'auto')" />
+                <input type="text" id="otro_auto_text_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" data-type="AUTOMOVIL" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" name="otro_auto" placeholder="Ejem. Tsuru Rojo" disabled="disabled"/>
+                <input type="text" class="button" onclick="agregar_atributo_s('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'auto')" value="Aceptar">
             </td>
             <td>
-                <select data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" id="telefono_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" onchange="agregar_atributo_s('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'tel')">
-                    <option value="0">Propio</option>
+                <select data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" id="telefono_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>">
                     <?php if(isset($atributos['TELEFONO'])){ ?>
                     <?php foreach ($atributos['TELEFONO'] as $telefono) { ?>
                         <option id="opc_telefono_<?=$telefono['id_atributo']; ?>" value="<?=$telefono['nombre_atributo']; ?>" data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>">
@@ -110,13 +108,7 @@
                 <label>Otro</label>
                 <input type="checkbox" id="otro_tel_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" name="otro_auto" onchange="agregar_telefono('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>')" />
                 <input type="text" id="otro_tel_text_<?=(isset($id_tarea)) ? $id_tarea : ''; ?>" data-type="TELEFONO" data-date="<?=$fecha_resumen; ?>" data-asignado="<?=$asignado; ?>" name="otro_auto" placeholder="Ejem. Tsuru Rojo" disabled="disabled" onchange="agregar_atributo('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'tel')" />
-            </td>
-            <td>
-            <a href="<?=(isset($actividad['tbl_usuarios_ag_id_usuario'])) ? base_url().'index.php/tareas/mostrar_vistas_c/tarea_dia_usuario/0/nm/'.$actividad['tbl_usuarios_ag_id_usuario'] : ''; ?>">
-                <i class="foundicon-search">
-                    Ver detalles
-                </i>
-            </a>
+                <input type="text" class="button" onclick="agregar_atributo_s('<?=(isset($id_tarea)) ? $id_tarea : ''; ?>', 'tel')" value="Aceptar">
             </td>
           </tr>
         <?php } ?>

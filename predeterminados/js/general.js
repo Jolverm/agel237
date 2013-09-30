@@ -120,11 +120,43 @@ function agregar_telefono(id){
 }
 
 function agregar_atributo_s(id, tipo){
+
+  var chk = $('#otro_' + tipo + '_' + id).attr('checked');
+
+  var tipoCampo = '';
+
     if(tipo == 'auto'){
-          var id_text = '#automovil_' + id;
+
+      if(chk == null){
+
+          tipoCampo = '#automovil_';
+
+        } else {
+
+          tipoCampo = '#otro_auto_text_';
+
+        }
+
+      var id_text = tipoCampo + id;
+
     } else {
-          var id_text = '#telefono_' + id;
-    }
+      
+      if(chk == null){
+
+                tipoCampo = '#telefono_';
+
+              } else {
+
+                tipoCampo = '#otro_tel_text_';
+
+              }
+
+            var id_text = tipoCampo + id;
+    
+      }
+
+      //alert(id_text);
+
     var selectedLabel = $(id_text).val();
     selectedLabel = $.trim(selectedLabel);
     var selectedAsignado = $(id_text).attr('data-asignado');
