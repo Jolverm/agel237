@@ -230,6 +230,7 @@
 
                     if(isset($_POST['date_resume'])){
 
+
                         $datos['contenido'] = $this->resumen_c($_POST['date_resume']);
 
                     } else {
@@ -268,8 +269,8 @@
 
                         $hoy = date('Y-m-d');
 
-                        $dia_siguiente = date("D d - M - Y", strtotime( "$hoy + 1 day"));
-
+                        $dia_siguiente = date("Y-m-d", strtotime( "$hoy + 1 day"));
+                        
                         $datos['contenido'] = $this->resumen_c($dia_siguiente, 'asignar_ta');
 
                     }
@@ -348,7 +349,6 @@
         }// fin de Agregar tarea
 
         public function resumen_c($date = '', $opc = ''){
-            
 
             if($date == ''){
 
@@ -360,23 +360,19 @@
                 
                 $datos['fecha_resumen']=$hoy;
 
-                $datos['tareas'] = $this->tareas_m->consulta_tareas_resumen_m($respuesta);
-
             } else {
-                
                  
-                $respuesta['dia'] = date("Y-m-d");
+                $respuesta['dia'] = $date;
 
                 $datos['dia'] = $date;
-                
-                $datos['tareas'] = $this->tareas_m->consulta_tareas_resumen_m($datos);
 
                 $datos['dia'] =  traducir_fecha( str_replace('-', 'de', date("D d - M - Y", strtotime( "$date"))));
                 
                 $datos['fecha_resumen']=$date;
             
-                
             }
+
+            $datos['tareas'] = $this->tareas_m->consulta_tareas_resumen_m($respuesta);
 
             $datos['fechas'] = $this->tareas_m->obtener_fechas();
 
