@@ -194,7 +194,6 @@ class Tareas_m extends CI_Model {
         
         $query = $this->db->get();
         
-        //print_r($this->db->last_query());
 
         unset($datos);
         
